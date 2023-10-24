@@ -18,12 +18,8 @@ jobs:
         run: npm install
       - name: Build project
         run: npm run build
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v3
-        with:
-          name: production-files
-          path: ./dist
-
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
   deploy:
     needs: build
     permissions:
