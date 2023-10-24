@@ -19,7 +19,7 @@ jobs:
       - name: Configure vite
         run: |
           echo 'export default {
-            base: "/hmb-map/"
+            base: "/${{ github.event.repository.name }}/"
           }' > vite.config.js
       - name: Build project
         run: npm run build
