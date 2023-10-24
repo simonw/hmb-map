@@ -5,9 +5,6 @@ import layers from "protomaps-themes-base";
 const protocol = new pmtiles.Protocol();
 maplibregl.addProtocol("pmtiles", protocol.tile);
 
-const mapUrl =
-  "https://gist.githubusercontent.com/simonw/3c1a5358ca8f782f1393f7ad0304b4bc/raw/193dae5feb25f6e32fca5bb6420b1ea03abfe13b/hmb.pmtiles";
-
 const myMap = new maplibregl.Map({
   container: "map", // container id
   style: {
@@ -17,7 +14,7 @@ const myMap = new maplibregl.Map({
       protomaps: {
         type: "vector",
         // url: `pmtiles://${mapUrl}`,
-        url: `pmtiles://${location.protocol}//${location.host}/hmb.pmtiles`,
+        url: `pmtiles://${location.protocol}//${location.host}${location.pathname}hmb.pmtiles`,
         attribution:
           '<a href="https://protomaps.com">Protomaps</a> © <a href="https://openstreetmap.org">OpenStreetMap</a>',
       },
