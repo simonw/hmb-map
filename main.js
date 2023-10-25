@@ -33,8 +33,15 @@ myMap.on("load", () => {
         const catlist = [categories.main, ...(categories.alternate || [])].join(
           ", ",
         );
+        let color = '#000080';
+        if (/store|shop/.test(catlist)) {
+          color = '#006400';
+        }
+        if (/restaurant|cafe/.test(catlist)) {
+          color = '#FFA500';
+        };
         const name = JSON.parse(row.names).value[0][0].value[0];
-        const marker = new maplibregl.Marker({ scale: 0.5, color: "#000080" });
+        const marker = new maplibregl.Marker({ scale: 0.5, color: color });
         marker
           .setLngLat([row.longitude, row.latitude])
           .setPopup(
